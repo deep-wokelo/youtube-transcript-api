@@ -4,7 +4,7 @@ import json
 
 import pprint
 
-from youtube_transcript_api.formatters import (
+from youtube_transcript_api_wokelo.formatters import (
     Formatter,
     JSONFormatter,
     TextFormatter,

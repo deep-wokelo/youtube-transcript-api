@@ -7,7 +7,7 @@ import requests
 
 import httpretty
 
-from youtube_transcript_api import (
+from youtube_transcript_api_wokelo import (
     YouTubeTranscriptApi,
     TranscriptsDisabled,
     NoTranscriptFound,

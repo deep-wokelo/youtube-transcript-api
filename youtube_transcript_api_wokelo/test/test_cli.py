@@ -3,8 +3,8 @@ from mock import MagicMock
 
 import json
 
-from youtube_transcript_api import YouTubeTranscriptApi, VideoUnavailable
-from youtube_transcript_api._cli import YouTubeTranscriptCli
+from youtube_transcript_api_wokelo import YouTubeTranscriptApi, VideoUnavailable
+from youtube_transcript_api_wokelo._cli import YouTubeTranscriptCli
 
 
 class TestYouTubeTranscriptCli(TestCase):
