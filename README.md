@@ -62,7 +62,7 @@ You can either integrate this module [into an existing application](#api), or ju
 The easiest way to get a transcript for a given video is to execute:
 
 ```python
-from youtube_transcript_api import YouTubeTranscriptApi
+from youtube_transcript_api_wokelo import YouTubeTranscriptApi
 
 YouTubeTranscriptApi.get_transcript(video_id)
 ```
@@ -177,7 +177,7 @@ print(translated_transcript.fetch())
 
 ### By example
 ```python
-from youtube_transcript_api import YouTubeTranscriptApi
+from youtube_transcript_api_wokelo import YouTubeTranscriptApi
 
 # retrieve the available transcripts
 transcript_list = YouTubeTranscriptApi.list_transcripts('video_id')
@@ -231,13 +231,13 @@ Here is how to import from the `formatters` module.
 
 ```python
 # the base class to inherit from when creating your own formatter.
-from youtube_transcript_api.formatters import Formatter
+from youtube_transcript_api_wokelo.formatters import Formatter
 
 # some provided subclasses, each outputs a different string format.
-from youtube_transcript_api.formatters import JSONFormatter
-from youtube_transcript_api.formatters import TextFormatter
-from youtube_transcript_api.formatters import WebVTTFormatter
-from youtube_transcript_api.formatters import SRTFormatter
+from youtube_transcript_api_wokelo.formatters import JSONFormatter
+from youtube_transcript_api_wokelo.formatters import TextFormatter
+from youtube_transcript_api_wokelo.formatters import WebVTTFormatter
+from youtube_transcript_api_wokelo.formatters import SRTFormatter
 ```
 
 ### Provided Formatter Example
@@ -246,8 +246,8 @@ Lets say we wanted to retrieve a transcript and write that transcript as a JSON 
 ```python
 # your_custom_script.py
 
-from youtube_transcript_api import YouTubeTranscriptApi
-from youtube_transcript_api.formatters import JSONFormatter
+from youtube_transcript_api_wokelo import YouTubeTranscriptApi
+from youtube_transcript_api_wokelo.formatters import JSONFormatter
 
 # Must be a single transcript.
 transcript = YouTubeTranscriptApi.get_transcript(video_id)
@@ -293,44 +293,44 @@ class MyCustomFormatter(Formatter):
 Execute the CLI script using the video ids as parameters and the results will be printed out to the command line:  
 
 ```  
-youtube_transcript_api <first_video_id> <second_video_id> ...  
+youtube_transcript_api_wokelo <first_video_id> <second_video_id> ...  
 ```  
 
 The CLI also gives you the option to provide a list of preferred languages:  
 
 ```  
-youtube_transcript_api <first_video_id> <second_video_id> ... --languages de en  
+youtube_transcript_api_wokelo <first_video_id> <second_video_id> ... --languages de en  
 ```
 
 You can also specify if you want to exclude automatically generated or manually created subtitles:
 
 ```  
-youtube_transcript_api <first_video_id> <second_video_id> ... --languages de en --exclude-generated
-youtube_transcript_api <first_video_id> <second_video_id> ... --languages de en --exclude-manually-created
+youtube_transcript_api_wokelo <first_video_id> <second_video_id> ... --languages de en --exclude-generated
+youtube_transcript_api_wokelo <first_video_id> <second_video_id> ... --languages de en --exclude-manually-created
 ```
 
 If you would prefer to write it into a file or pipe it into another application, you can also output the results as json using the following line:  
 
 ```  
-youtube_transcript_api <first_video_id> <second_video_id> ... --languages de en --format json > transcripts.json
+youtube_transcript_api_wokelo <first_video_id> <second_video_id> ... --languages de en --format json > transcripts.json
 ```  
 
 Translating transcripts using the CLI is also possible:
 
 ```  
-youtube_transcript_api <first_video_id> <second_video_id> ... --languages en --translate de
+youtube_transcript_api_wokelo <first_video_id> <second_video_id> ... --languages en --translate de
 ```  
 
 If you are not sure which languages are available for a given video you can call, to list all available transcripts:
 
 ```  
-youtube_transcript_api --list-transcripts <first_video_id>
+youtube_transcript_api_wokelo --list-transcripts <first_video_id>
 ```
 
 If a video's ID starts with a hyphen you'll have to mask the hyphen using `\` to prevent the CLI from mistaking it for a argument name. For example to get the transcript for the video with the ID `-abc123` run:
 
 ```
-youtube_transcript_api "\-abc123"
+youtube_transcript_api_wokelo "\-abc123"
 ```
 
 ## Proxy  
@@ -338,7 +338,7 @@ youtube_transcript_api "\-abc123"
 You can specify a https proxy, which will be used during the requests to YouTube:
 
 ```python  
-from youtube_transcript_api import YouTubeTranscriptApi  
+from youtube_transcript_api_wokelo import YouTubeTranscriptApi  
 
 YouTubeTranscriptApi.get_transcript(video_id, proxies={"https": "https://user:pass@domain:port"})
 ```  
@@ -351,7 +351,7 @@ Requests [verifies SSL](https://docs.python-requests.org/en/latest/user/advanced
 
 
 ```python  
-from youtube_transcript_api import YouTubeTranscriptApi  
+from youtube_transcript_api_wokelo import YouTubeTranscriptApi  
 
 YouTubeTranscriptApi.list_transcripts(video_id, proxies={"http": "http://api-key:@proxy-provider:port/","https": "http://api-key:@proxy-provider:port/",}, verify='/path/to/certificate.crt')
 
@@ -362,7 +362,7 @@ YouTubeTranscriptApi.get_transcript(video_id, proxies={"http": "http://api-key:@
 Using the CLI:  
 
 ```  
-youtube_transcript_api <first_video_id> <second_video_id> --https-proxy https://user:pass@domain:port
+youtube_transcript_api_wokelo <first_video_id> <second_video_id> --https-proxy https://user:pass@domain:port
 ```
 
 ## Cookies
@@ -372,7 +372,7 @@ Some videos are age restricted, so this module won't be able to access those vid
 Once you have that, you can use it with the module to access age-restricted videos' captions like so.
 
 ```python  
-from youtube_transcript_api import YouTubeTranscriptApi  
+from youtube_transcript_api_wokelo import YouTubeTranscriptApi  
 
 YouTubeTranscriptApi.get_transcript(video_id, cookies='/path/to/your/cookies.txt')
 
@@ -382,7 +382,7 @@ YouTubeTranscriptApi.get_transcripts([video_id], cookies='/path/to/your/cookies.
 Using the CLI:
 
 ```
-youtube_transcript_api <first_video_id> <second_video_id> --cookies /path/to/your/cookies.txt
+youtube_transcript_api_wokelo <first_video_id> <second_video_id> --cookies /path/to/your/cookies.txt
 ```
 
 

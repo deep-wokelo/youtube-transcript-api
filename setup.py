@@ -17,13 +17,13 @@ def get_test_suite():
     test_loader = unittest.TestLoader()
     test_suite = test_loader.discover(
         'test', pattern='test_*.py',
-        top_level_dir='{dirname}/youtube_transcript_api'.format(dirname=os.path.dirname(__file__))
+        top_level_dir='{dirname}/youtube_transcript_api_wokelo'.format(dirname=os.path.dirname(__file__))
     )
     return test_suite
 
 
 setuptools.setup(
-    name="youtube_transcript_api",
+    name="youtube_transcript_api_wokelo",
     version="0.6.2",
     author="Jonas Depoix",
     author_email="jonas.depoix@web.de",
@@ -53,7 +53,7 @@ setuptools.setup(
     test_suite='setup.get_test_suite',
     entry_points={
         'console_scripts': [
-            'youtube_transcript_api = youtube_transcript_api.__main__:main',
+            'youtube_transcript_api_wokelo = youtube_transcript_api_wokelo.__main__:main',
         ],
     },
 )
